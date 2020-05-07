@@ -10,7 +10,7 @@ namespace Game.Engine.Monsters
     {
         // abstract class representing a monster
         public int XPValue { get; protected set; }
-        public string BattleGreetings { get; protected set; } // what the monster says when it attacks the player for the first time
+        public string BattleGreetings { get; protected set; } 
         public abstract List<StatPackage> BattleMove(); // perform an action in the battle
         public virtual void React(List<StatPackage> packs) // receive the result of your opponent's action
         {
