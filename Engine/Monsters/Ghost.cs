@@ -9,7 +9,7 @@ namespace Game.Engine.Monsters
     [Serializable]
     class Ghost : Monster
     {
-        public int dodgeIndex = 0;
+        private int dodgeIndex = 0;
         public Ghost(int ghostLevel)
         {
             Health = 50 + 5 * ghostLevel;
