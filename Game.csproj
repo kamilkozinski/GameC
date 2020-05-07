@@ -151,6 +151,7 @@
     <Compile Include="Engine\MetaMapMatrix.cs" />
     <Compile Include="Engine\Monsters\Dragon.cs" />
     <Compile Include="Engine\Monsters\Ghost.cs" />
+    <Compile Include="Engine\Monsters\GoldenDragon.cs" />
     <Compile Include="Engine\Monsters\Monster.cs" />
     <Compile Include="Engine\CharacterClasses\Player.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\DragonFactory.cs" />
@@ -276,6 +277,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\monster2142.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\monster2143.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

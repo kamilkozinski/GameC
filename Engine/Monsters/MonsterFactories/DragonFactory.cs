@@ -8,7 +8,7 @@ namespace Game.Engine.Monsters.MonsterFactories
 {
     class DragonFactory : MonsterFactory
     {
-        private int probabilityIndex;
+        private int probabilityIndex = 0;
         private int encounterNumber = 0; // how many times has this factory been used already?
         public DragonFactory()
         {
@@ -22,10 +22,16 @@ namespace Game.Engine.Monsters.MonsterFactories
                 encounterNumber++;
                 return new Dragon(playerLevel);
             }
-            else if ((encounterNumber == 1) && (probabilityIndex <= 1))
+            else if ((encounterNumber == 1) && (probabilityIndex <= 5))
             {
                 encounterNumber++;
                 return new SilverDragon(playerLevel);
+
+            }
+            else if ((encounterNumber == 2) && (probabilityIndex == 0))
+            {
+                encounterNumber++;
+                return new GoldenDragon(playerLevel);
 
             }
 
@@ -34,7 +40,8 @@ namespace Game.Engine.Monsters.MonsterFactories
         public override System.Windows.Controls.Image Hint()
         {
             if (encounterNumber == 0) return new Dragon(0).GetImage();
-            else if ((encounterNumber == 1) && (probabilityIndex <= 1)) return new SilverDragon(0).GetImage();
+            else if ((encounterNumber == 1) && (probabilityIndex <= 5)) return new SilverDragon(0).GetImage();
+            else if ((encounterNumber == 2) && (probabilityIndex == 0)) return new GoldenDragon(0).GetImage();
             else return null;
         }
         public override MonsterFactory Clone() // clone this factory so that there can be multiple instances in the map

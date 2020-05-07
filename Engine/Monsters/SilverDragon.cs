@@ -30,7 +30,6 @@ namespace Game.Engine.Monsters
                 return new List<StatPackage>() { new StatPackage("fire", 40, "Silver dragon attacks you with fireball! (" + (40) + " fire damage)") };
             }
 
-
             if (Stamina >= 40 )
             {
                 Stamina -= 15;
