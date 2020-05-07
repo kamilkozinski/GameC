@@ -33,7 +33,7 @@ namespace Game.Engine.Monsters
                 }
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage("none", 0, "Ghost has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage("none", 0, "Ghost has no energy to attack!") };
                 }
             }
             else 
@@ -47,7 +47,7 @@ namespace Game.Engine.Monsters
                 }
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage("none", 0, "Ghost has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage("none", 0, "Ghost has no energy to attack!") };
                 }
             }
         }
