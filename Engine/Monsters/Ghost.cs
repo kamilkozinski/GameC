@@ -13,17 +13,17 @@ namespace Game.Engine.Monsters
         public Ghost(int ghostLevel)
         {
             Health = 50 + 5 * ghostLevel;
-            Strength = 20 + ghostLevel;
+            Strength = 10 + ghostLevel;
             Armor = 20;
             Precision = 0;
             MagicPower = 0;
             Stamina = 50;
             XPValue = 30 + ghostLevel;
-            Name = "monster0003";
+            Name = "monster2140";
             BattleGreetings = "Frig off I got work to do !!";
         }
         public override List<StatPackage> BattleMove()
-        {/*
+        {
             if (dodgeIndex > 4)
             {
                 if (Stamina > 0)
@@ -38,7 +38,7 @@ namespace Game.Engine.Monsters
             }
             else 
             {
-                */
+                
 
                 if (Stamina > 0)
                 {
@@ -50,12 +50,12 @@ namespace Game.Engine.Monsters
                     return new List<StatPackage>() { new StatPackage("none", 0, "Ghost has no energy to attack anymore!") };
                 }
             }
-       // }
+        }
         public override void React(List<StatPackage> packs) // receive the result of your opponent's action
         {
             dodgeIndex = Index.RNG(0, 10);
 
-            if (dodgeIndex <= 1)
+            if (dodgeIndex <= 4)
                 foreach (StatPackage pack in packs)
                 {
                     Health -= pack.HealthDmg;
@@ -67,7 +67,7 @@ namespace Game.Engine.Monsters
             else
 
             {
-                // dodging attack
+                //dodging attack
             }
         }
     }

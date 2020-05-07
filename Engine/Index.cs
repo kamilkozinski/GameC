@@ -6,6 +6,7 @@ using Game.Engine.Items;
 using Game.Engine.Items.ItemFactories;
 using Game.Engine.Items.BasicArmor;
 using Game.Engine.Interactions;
+using Game.Engine.Interactions.InteractionFactories;
 
 namespace Game.Engine
 {
@@ -43,7 +44,11 @@ namespace Game.Engine
         {
             new RatFactory(), new GhostFactory()
         };
-
+        private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
+        {
+            new SkillForgetFactory(),
+            new GymirHymirFactory()
+        };
 
     }
 }
