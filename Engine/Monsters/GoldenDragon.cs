@@ -13,7 +13,7 @@ namespace Game.Engine.Monsters
         {
             Health = 50 + 5 * dragonLevel;
             Strength = 30 + dragonLevel;
-            Armor = 15;
+            Armor = 85;
             Precision = 15;
             MagicPower = 35;
             Stamina = 60;

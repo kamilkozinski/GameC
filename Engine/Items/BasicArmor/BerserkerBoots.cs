@@ -18,8 +18,8 @@ namespace Game.Engine.Items.BasicArmor
         {
             PublicName = "BerserkerBoots";
             PublicTip = "when you lose X health, receive a X/8 percentage bonus to physical damage you deal in this battle";
-            GoldValue = 1;
-            ArMod = 20;
+            GoldValue = 50;
+            ArMod = 10;
             StaMod = 0;
 
         }

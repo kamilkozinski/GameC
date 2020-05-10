@@ -35,12 +35,13 @@ namespace Game.Engine
             new BerserkerArmor(),
             new BerserkerGloves(),
             new BerserkerBoots(),
+            new Aerondight(),
             new GrowingStoneArmor()
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
         {
-            new BasicArmorFactory()
+            new BasicArmorFactory(), new SwordFactory()
         };
 
         private static List<MonsterFactory> monsterFactories = new List<MonsterFactory>()

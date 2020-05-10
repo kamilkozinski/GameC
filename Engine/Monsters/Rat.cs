@@ -14,7 +14,7 @@ namespace Game.Engine.Monsters
         {
             Health = 30 + 5 * ratLevel;
             Strength = 10 + ratLevel;
-            Armor = 0;
+            Armor = 10;
             Precision = 50;
             MagicPower = 0;
             Stamina = 50;

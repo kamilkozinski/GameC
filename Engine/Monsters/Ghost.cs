@@ -14,7 +14,7 @@ namespace Game.Engine.Monsters
         {
             Health = 50 + 5 * ghostLevel;
             Strength = 10 + ghostLevel;
-            Armor = 20;
+            Armor = 25;
             Precision = 0;
             MagicPower = 0;
             Stamina = 50;
