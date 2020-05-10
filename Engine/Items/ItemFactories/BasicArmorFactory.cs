@@ -15,6 +15,8 @@ namespace Game.Engine.Items.ItemFactories
                 new SteelArmor(),
                 new AntiMagicArmor(),
                 new BerserkerArmor(),
+                new BerserkerGloves(),
+                new BerserkerBoots(),
                 new GrowingStoneArmor()
             };
             return basicArmor[Index.RNG(0, basicArmor.Count)];
@@ -26,7 +28,9 @@ namespace Game.Engine.Items.ItemFactories
             {
                 new SteelArmor(),
                 new AntiMagicArmor(),
-                new BerserkerArmor()
+                new BerserkerGloves(),
+                new BerserkerArmor(),
+                new BerserkerBoots()
             };
             return basicArmor[Index.RNG(0, basicArmor.Count)];
         }

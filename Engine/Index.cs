@@ -33,6 +33,8 @@ namespace Game.Engine
             new SteelArmor(),
             new AntiMagicArmor(),
             new BerserkerArmor(),
+            new BerserkerGloves(),
+            new BerserkerBoots(),
             new GrowingStoneArmor()
         };
 

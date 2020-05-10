@@ -12,7 +12,7 @@ namespace Game.Engine.Monsters
         public GoldenDragon(int dragonLevel)
         {
             Health = 50 + 5 * dragonLevel;
-            Strength = 10 + dragonLevel;
+            Strength = 30 + dragonLevel;
             Armor = 15;
             Precision = 15;
             MagicPower = 35;

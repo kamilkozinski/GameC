@@ -134,6 +134,8 @@
     <Compile Include="Engine\Items\Axe.cs" />
     <Compile Include="Engine\Items\BasicArmor\AntiMagicArmor.cs" />
     <Compile Include="Engine\Items\BasicArmor\BerserkerArmor.cs" />
+    <Compile Include="Engine\Items\BasicArmor\BerserkerBoots.cs" />
+    <Compile Include="Engine\Items\BasicArmor\BerserkerGloves.cs" />
     <Compile Include="Engine\Items\BasicArmor\GrowingStoneArmor.cs" />
     <Compile Include="Engine\Items\BasicArmor\SteelArmor.cs" />
     <Compile Include="Engine\Items\BasicSpear.cs" />
@@ -280,6 +282,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\monster2143.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\item2144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\item2145.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

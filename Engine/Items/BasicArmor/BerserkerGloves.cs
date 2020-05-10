@@ -1,33 +1,30 @@
-﻿using Game.Engine.CharacterClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Engine.CharacterClasses;
 
 namespace Game.Engine.Items.BasicArmor
 {
     [Serializable]
-    class BerserkerArmor : Item
+    class BerserkerGloves : Item
     {
-        // special passive: receive physical damage bonus after losing health
-
         private int berserkerBonus;
         private bool berserkerSetBonus1;
         private bool berserkerSetBonus2;
-        public BerserkerArmor() : base("item0007")
+        public BerserkerGloves() : base("item2144")
         {
-            PublicName = "BerserkerArmor";
+            PublicName = "BerserkerGloves";
             PublicTip = "when you lose X health, receive a X/8 percentage bonus to physical damage you deal in this battle";
             GoldValue = 1;
             ArMod = 20;
             StaMod = 0;
+
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-           
-                pack.HealthDmg = (100 + berserkerBonus / 8) * pack.HealthDmg / 100;
-            
+            pack.HealthDmg = (100 + berserkerBonus / 8) * pack.HealthDmg / 100;
             return pack;
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
@@ -41,7 +38,7 @@ namespace Game.Engine.Items.BasicArmor
             berserkerSetBonus2 = false;
             foreach (var obj in otherItems)
             {
-                if (obj == "item2144" && berserkerSetBonus1 == false)
+                if (obj == "item0007" && berserkerSetBonus1 == false)
                 {
                     berserkerSetBonus1 = true;
                     if (berserkerSetBonus1 == true && obj == "item2145")
@@ -50,17 +47,16 @@ namespace Game.Engine.Items.BasicArmor
                 if (obj == "item2145" && berserkerSetBonus1 == false)
                 {
                     berserkerSetBonus1 = true;
-                    if (berserkerSetBonus1 == true && obj == "item2144")
+                    if (berserkerSetBonus1 == true && obj == "item0007")
                         berserkerSetBonus2 = true;
 
                 }
-                   
             }
             if (berserkerSetBonus1 && !berserkerSetBonus2)
             {
                 currentPlayer.ArmorBuff += (ArMod);
                 currentPlayer.StaminaBuff += (StaMod + 10);
-              
+
             }
             else if (berserkerSetBonus1 && berserkerSetBonus2)
             {
@@ -73,9 +69,11 @@ namespace Game.Engine.Items.BasicArmor
                 berserkerSetBonus1 = false;
                 berserkerSetBonus2 = false;
             }
-
+        
+        
 
         }
+
 
 
     }
