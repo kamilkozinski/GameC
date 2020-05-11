@@ -11,13 +11,13 @@ namespace Game.Engine.Monsters
     {
         public GoldenDragon(int dragonLevel)
         {
-            Health = 50 + 5 * dragonLevel;
-            Strength = 30 + dragonLevel;
+            Health = 50 + 2 * dragonLevel;
+            Strength = 30 + 2 * dragonLevel;
             Armor = 85;
             Precision = 15;
             MagicPower = 35;
             Stamina = 60;
-            XPValue = 75 + dragonLevel;
+            XPValue = 75 + 2 * dragonLevel;
             Name = "monster2143";
             BattleGreetings = "I AM VISERION";
 

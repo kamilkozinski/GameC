@@ -21,7 +21,7 @@ namespace Game.Engine
 
         private static List<SkillFactory> weaponSkillFactories = new List<SkillFactory>()
         {
-            new BasicWeaponMoveFactory()
+            new BasicWeaponMoveFactory(), new SwordPlayFactory()
         };
 
         private static List<Item> items = new List<Item>()

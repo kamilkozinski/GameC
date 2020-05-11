@@ -11,8 +11,8 @@ namespace Game.Engine.Items.BasicArmor
     class BerserkerGloves : Item
     {
         private int berserkerBonus;
-        private bool berserkerSetBonus1;
-        private bool berserkerSetBonus2;
+        private int berserkerSetBonus1;
+        private int berserkerSetBonus2;
         public BerserkerGloves() : base("item2144")
         {
             PublicName = "BerserkerGloves";
@@ -34,40 +34,34 @@ namespace Game.Engine.Items.BasicArmor
         }
         public override void ApplyBuffs(Player currentPlayer, List<string> otherItems)
         {
-            berserkerSetBonus1 = false;
-            berserkerSetBonus2 = false;
+            berserkerSetBonus1 = 0;
+            berserkerSetBonus2 = 0;
             foreach (var obj in otherItems)
             {
-                if (obj == "item0007" && berserkerSetBonus1 == false)
+                if (obj == "item0007")
                 {
-                    berserkerSetBonus1 = true;
-                    if (berserkerSetBonus1 == true && obj == "item2145")
-                        berserkerSetBonus2 = true;
+                    berserkerSetBonus1++;
                 }
-                if (obj == "item2145" && berserkerSetBonus1 == false)
+                else if (obj == "item2145" )
                 {
-                    berserkerSetBonus1 = true;
-                    if (berserkerSetBonus1 == true && obj == "item0007")
-                        berserkerSetBonus2 = true;
-
+                    berserkerSetBonus2++;
                 }
             }
-            if (berserkerSetBonus1 && !berserkerSetBonus2)
+            if (berserkerSetBonus1 > 0 && berserkerSetBonus2 > 0)
             {
                 currentPlayer.ArmorBuff += (ArMod);
-                currentPlayer.StaminaBuff += (StaMod + 10);
+                currentPlayer.StaminaBuff += (StaMod + 15);
 
             }
-            else if (berserkerSetBonus1 && berserkerSetBonus2)
+            else if ((berserkerSetBonus1 > 0  && berserkerSetBonus2 == 0) || (berserkerSetBonus2 > 0 && berserkerSetBonus1 == 0))
             {
                 currentPlayer.ArmorBuff += ArMod;
-                currentPlayer.StaminaBuff += (StaMod + 15);
+                currentPlayer.StaminaBuff += (StaMod + 10);
             }
             else
             {
                 currentPlayer.ArmorBuff += ArMod;
-                berserkerSetBonus1 = false;
-                berserkerSetBonus2 = false;
+              
             }
         
         

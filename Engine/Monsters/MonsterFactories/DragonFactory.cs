@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Monsters.MonsterFactories
 {
+    [Serializable]
     class DragonFactory : MonsterFactory
     {
-        private int probabilityIndex = 0;
+       public int ProbabilityIndex
+        {
+            get;
+            set;
+        }
         private int encounterNumber = 0; // how many times has this factory been used already?
         public DragonFactory()
         {
-            probabilityIndex = Index.RNG(0, 10);
+            ProbabilityIndex = Index.RNG(0, 10);
         }
         public override Monster Create(int playerLevel)
         {
@@ -22,13 +27,13 @@ namespace Game.Engine.Monsters.MonsterFactories
                 encounterNumber++;
                 return new Dragon(playerLevel);
             }
-            else if ((encounterNumber == 1) && (probabilityIndex <= 5))
+            else if ((encounterNumber == 1) && (ProbabilityIndex <= 5))
             {
                 encounterNumber++;
                 return new SilverDragon(playerLevel);
 
             }
-            else if ((encounterNumber == 2) && (probabilityIndex == 0))
+            else if ((encounterNumber == 2) && (ProbabilityIndex == 0))
             {
                 encounterNumber++;
                 return new GoldenDragon(playerLevel);
@@ -40,13 +45,14 @@ namespace Game.Engine.Monsters.MonsterFactories
         public override System.Windows.Controls.Image Hint()
         {
             if (encounterNumber == 0) return new Dragon(0).GetImage();
-            else if ((encounterNumber == 1) && (probabilityIndex <= 5)) return new SilverDragon(0).GetImage();
-            else if ((encounterNumber == 2) && (probabilityIndex == 0)) return new GoldenDragon(0).GetImage();
+            else if ((encounterNumber == 1) && (ProbabilityIndex <= 5)) return new SilverDragon(0).GetImage();
+            else if ((encounterNumber == 2) && (ProbabilityIndex == 0)) return new GoldenDragon(0).GetImage();
             else return null;
         }
-        public override MonsterFactory Clone() // clone this factory so that there can be multiple instances in the map
+        public override MonsterFactory Clone() 
         {
-            return (DragonFactory)this.MemberwiseClone();
+
+            return (new DragonFactory());
         }
 
 

@@ -171,8 +171,14 @@
     <Compile Include="Engine\Skills\BasicSpells\LightFlash.cs" />
     <Compile Include="Engine\Skills\BasicSpells\LightFlashDecorator.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\AxeCut.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\FastAttack.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\FastAttackDecorator.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\SpearStab.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\StrongAttack.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\StrongAttackDecorator.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\SwordSlash.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\Whirl.cs" />
+    <Compile Include="Engine\Skills\BasicWeaponMoves\WhirlDecorator.cs" />
     <Compile Include="Engine\Skills\Skill.cs" />
     <Compile Include="Engine\Skills\SkillDecorator.cs" />
     <Compile Include="Engine\Skills\SkillFactories\BasicSpellFactory.cs" />
@@ -180,6 +186,7 @@
     <Compile Include="Engine\Skills\BasicSpells\WindGustDecorator.cs" />
     <Compile Include="Engine\Skills\SkillFactories\BasicWeaponMoveFactory.cs" />
     <Compile Include="Engine\Skills\SkillFactories\SkillFactory.cs" />
+    <Compile Include="Engine\Skills\SkillFactories\SwordPlayFactory.cs" />
     <Compile Include="Engine\StatPackage.cs" />
     <Compile Include="Engine\Subject.cs" />
     <Compile Include="MainWindow.xaml.cs">

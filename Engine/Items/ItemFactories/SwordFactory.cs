@@ -12,7 +12,7 @@ namespace Game.Engine.Items.ItemFactories
         {
             List<Item> sword = new List<Item>()
             {
-                new Aerondight(),
+                new Aerondight(), new BasicSword()
               
             };
             return sword[Index.RNG(0, sword.Count)];
@@ -28,7 +28,7 @@ namespace Game.Engine.Items.ItemFactories
         }
         public Item CreateNonWeaponItem()
         {
-            // BerserkerArmor only works for physical damage dealers
+            
             List<Item> sword = new List<Item>()
             {
                 
