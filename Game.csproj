@@ -122,6 +122,7 @@
     <Compile Include="Engine\Interactions\Built-In\HymirHostileStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\HymirNeutralStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\IHymirStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QuestDoor1.cs" />
     <Compile Include="Engine\Interactions\Built-In\SkillForgetInteraction.cs" />
     <Compile Include="Engine\Interactions\ConsoleInteraction.cs" />
     <Compile Include="Engine\Interactions\ImageInteraction.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Engine\Interactions\InteractionFactories\GymirHymirFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\InteractionFactory.cs" />
     <Compile Include="Engine\Interactions\Built-In\ShopInteraction.cs" />
+    <Compile Include="Engine\Interactions\InteractionFactories\QuestDoorFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\SkillForgetFactory.cs" />
     <Compile Include="Engine\Interactions\ListBoxInteraction.cs" />
     <Compile Include="Engine\Items\Aerondight.cs" />
@@ -300,6 +302,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\item2146.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\interaction0005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\interaction0005display.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
