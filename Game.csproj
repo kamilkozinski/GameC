@@ -111,10 +111,15 @@
     <Compile Include="Engine\Battle.cs" />
     <Compile Include="Engine\CharacterClasses\Mage.cs" />
     <Compile Include="Engine\CharacterClasses\Warrior.cs" />
+    <Compile Include="Engine\DefaultStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QD1ThirdQuestStartStrategy.cs" />
+    <Compile Include="Engine\Q1Strategy.cs" />
     <Compile Include="Engine\GameSession.cs" />
     <Compile Include="Engine\GameSessionPrivateLogic.cs" />
     <Compile Include="Engine\GameSessionPublicLogic.cs" />
     <Compile Include="Engine\DisplayItem.cs" />
+    <Compile Include="Engine\IBattleStrategy.cs" />
+    <Compile Include="Engine\IMediator.cs" />
     <Compile Include="Engine\IndexLogic.cs" />
     <Compile Include="Engine\Interactions\Built-In\GymirEncounter.cs" />
     <Compile Include="Engine\Interactions\Built-In\HymirEncounter.cs" />
@@ -122,6 +127,9 @@
     <Compile Include="Engine\Interactions\Built-In\HymirHostileStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\HymirNeutralStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\IHymirStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\IQD1Strategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QD1FirstQuestStartStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QD1SecondQuestStartStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\QuestDoor1.cs" />
     <Compile Include="Engine\Interactions\Built-In\SkillForgetInteraction.cs" />
     <Compile Include="Engine\Interactions\ConsoleInteraction.cs" />
@@ -153,6 +161,7 @@
     <Compile Include="Engine\Items\Spear.cs" />
     <Compile Include="Engine\Items\Staff.cs" />
     <Compile Include="Engine\Items\Sword.cs" />
+    <Compile Include="Engine\KilledMonstersCounter.cs" />
     <Compile Include="Engine\MapMatrix.cs" />
     <Compile Include="Engine\MetaMapMatrix.cs" />
     <Compile Include="Engine\Monsters\Dragon.cs" />
@@ -167,6 +176,9 @@
     <Compile Include="Engine\Monsters\Rat.cs" />
     <Compile Include="Engine\Monsters\RatEvolved.cs" />
     <Compile Include="Engine\Monsters\SilverDragon.cs" />
+    <Compile Include="Engine\Q2Strategy.cs" />
+    <Compile Include="Engine\QD1BetweenTasksStrategy.cs" />
+    <Compile Include="Engine\QuestDoorMediator.cs" />
     <Compile Include="Engine\SaveData.cs" />
     <Compile Include="Engine\Skills\BasicSpells\FireArrow.cs" />
     <Compile Include="Engine\Skills\BasicSpells\FireArrowDecorator.cs" />

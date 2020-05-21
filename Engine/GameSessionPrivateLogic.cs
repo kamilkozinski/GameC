@@ -8,6 +8,7 @@ using Game.Engine.Skills;
 using System.Windows.Controls;
 using Game.Engine.Interactions;
 using Game.Engine.Monsters;
+using Game.Engine.Interactions.Built_In;
 
 namespace Game.Engine
 {
@@ -15,6 +16,7 @@ namespace Game.Engine
     // some of the methods may be public (mostly for Game.Display calls), but they are generally not meant for routine usage by game content classes
     partial class GameSession
     {
+        KilledMonstersCounter newCounter = KilledMonstersCounter.GetInstance();
         private void UpdateLocations()
         {
             // execute events for the current location
@@ -42,7 +44,7 @@ namespace Game.Engine
             while (timer.Enabled)
             {
                 // do not freeze the rest of application
-                if(Application.Current != null) Application.Current.Dispatcher.Invoke(DispatcherPriority.Background, new Action(delegate { }));
+                if (Application.Current != null) Application.Current.Dispatcher.Invoke(DispatcherPriority.Background, new Action(delegate { }));
             }
         }
         public void RemoveItemPosition(int x, int y)
@@ -87,7 +89,7 @@ namespace Game.Engine
             // re-check for active items - both the game logic and the user may have changed them
             List<string> itemNames = GetActiveItemNames();
             List<Item> newItems = new List<Item>();
-            foreach(string itemName in itemNames)
+            foreach (string itemName in itemNames)
             {
                 Item tmp = Index.ProduceSpecificItem(itemName);
                 newItems.Add(tmp);
@@ -158,6 +160,7 @@ namespace Game.Engine
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, parentPage.Stat4);
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, parentPage.Stat5);
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, parentPage.Stat6);
+
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, parentPage.StatLevel);
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, parentPage.StatGold);
         }
@@ -268,6 +271,7 @@ namespace Game.Engine
         public void StartMoving() { parentPage.Movable = true; }
         private void LocationEvents(int code)
         {
+
             // events and interactions that happen at special map locations
 
             /* Note: there is a weird display issue where KeyDown event fires twice when a game interaction occurs
@@ -281,19 +285,61 @@ namespace Game.Engine
             //
             if (code == 1000)
             {
+                Battle newBattle = null;
                 try
                 {
+                    DefaultStrategy strat0 = new DefaultStrategy();
+                    Q1Strategy strat1 = new Q1Strategy();
+                    Q2Strategy strat2 = new Q2Strategy();
+                    
+
                     Monster monster = mapMatrix.CreateMonster(playerPosLeft, playerPosTop, currentPlayer.Level);
                     if (monster != null)
                     {
                         BattleScene newBattleScene = new BattleScene(parentPage, currentPlayer, monster);
-                        Battle newBattle = new Battle(this, newBattleScene, monster);
+                        if (newCounter.BattleStrategy == 1)
+                        {
+                            newBattle = new Battle(strat1, this, newBattleScene, monster, newCounter);
+                        }
+                        else if (newCounter.BattleStrategy == 2)
+                        {
+                            newBattle = new Battle(strat2, this, newBattleScene, monster, newCounter);
+                        }
+                        else
+                        {
+                            newBattle = new Battle(strat0, this, newBattleScene, monster, newCounter);
+                        }
+
                         newBattle.Run();
                         if (newBattle.battleResult)
                         {
-                            parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
-                            UpdateStat(7, monster.XPValue);
-                            mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            if (monster.Name == "monster2141")
+                            {
+                                newCounter.GreenDragonCounter += 1;
+                                parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
+                                UpdateStat(7, monster.XPValue);
+                                mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            }
+                            else if (monster.Name == "monster2140")
+                            {
+                                newCounter.GhostCounter += 1;
+                                parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
+                                UpdateStat(7, monster.XPValue);
+                                mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            }
+                            else if (monster.Name == "monster0001")
+                            {
+                                newCounter.RatsCounter += 1;
+                                parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
+                                UpdateStat(7, monster.XPValue);
+                                mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            }
+                            else
+                            {
+                                parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
+                                UpdateStat(7, monster.XPValue);
+                                mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            }
                         }
                         else mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = monster; // remember this monster until the next time
                         // restore position from before the battle

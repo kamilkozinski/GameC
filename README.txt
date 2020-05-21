@@ -23,3 +23,4 @@ Code available: https://github.com/kamilkozinski/GameC
 	5. StrongAttackDecorator Class - allows to create COMBO with other attacks
 1.31 New skills factoreis
 	1. SwordPlayFactory Class - allows to produce new attack objects and creating COMBO's
+~~~~~~

@@ -10,11 +10,30 @@ namespace Game.Engine
     // class representing a battle event
     class Battle : ImageInteraction
     {
+        protected IMediator mediator;
+        public IBattleStrategy Strategy { get; set; }
+        public void SetMediator(IMediator med)
+        {
+            mediator = med;
+        }
+
+       
+        private KilledMonstersCounter _newCounter;
         protected BattleScene battleScene;
         protected int hpCopy, strCopy, armCopy, prCopy, mgCopy, staCopy; // after the battle, all statistics of the player are restored
         protected bool rewards;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
+        public Battle(IBattleStrategy strat,GameSession ses, BattleScene scene, Monster monster, KilledMonstersCounter newCounter, bool rewards = true) : base(ses)
+        {
+            Monster = monster;
+            _newCounter = newCounter;
+            Name = "battle0001";
+            this.rewards = rewards;
+            battleScene = scene;
+            battleScene.ImgSetup = GetImage();
+            Strategy = strat;
+        }
         public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true) : base(ses)
         {
             Monster = monster;
@@ -22,6 +41,7 @@ namespace Game.Engine
             this.rewards = rewards;
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
+
         }
         protected override void RunContent()
         {
@@ -70,6 +90,9 @@ namespace Game.Engine
             parentSession.Wait(300);
             battleScene.EndDisplay();
             parentSession.SendText("You won! XP gained: " + Monster.XPValue);
+
+            Strategy.Execute(parentSession, Monster, _newCounter);
+
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
         }
@@ -116,6 +139,8 @@ namespace Game.Engine
                 parentSession.currentPlayer.Gold += gold;
             }
         }
+        
+
 
     }
 }
