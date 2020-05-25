@@ -291,7 +291,7 @@ namespace Game.Engine
                     DefaultStrategy strat0 = new DefaultStrategy();
                     Q1Strategy strat1 = new Q1Strategy();
                     Q2Strategy strat2 = new Q2Strategy();
-                    
+                    Q3Strategy strat3 = new Q3Strategy();
 
                     Monster monster = mapMatrix.CreateMonster(playerPosLeft, playerPosTop, currentPlayer.Level);
                     if (monster != null)
@@ -304,6 +304,10 @@ namespace Game.Engine
                         else if (newCounter.BattleStrategy == 2)
                         {
                             newBattle = new Battle(strat2, this, newBattleScene, monster, newCounter);
+                        }
+                        else if (newCounter.BattleStrategy == 3)
+                        {
+                            newBattle = new Battle(strat3, this, newBattleScene, monster, newCounter);
                         }
                         else
                         {

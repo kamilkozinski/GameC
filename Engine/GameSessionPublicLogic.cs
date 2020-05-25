@@ -11,6 +11,7 @@ namespace Game.Engine
     // this is how other classes should interact with the gameplay
     partial class GameSession
     {
+        
         public void SendText(string text)
         {
             // sends a string to the game console
@@ -173,10 +174,11 @@ namespace Game.Engine
                 Monster monster = Index.RandomMonsterFactory().Clone().Create(currentPlayer.Level);
                 if (monster != null)
                 {
+                    DefaultStrategy strat0 = new DefaultStrategy();
                     Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, currentPlayer, monster);
-                    Battle newBattle = new Battle(this, newBattleScene, monster, false);
+                    Battle newBattle = new Battle(strat0, this, newBattleScene, monster, newCounter);
                     newBattle.Run();
-                    if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
+                    //if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
                 }
             }
             catch (IndexOutOfRangeException e)
@@ -192,6 +194,7 @@ namespace Game.Engine
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
             if (monster != null)
             {
+                
                 Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, currentPlayer, monster);
                 Battle newBattle = new Battle(this, newBattleScene, monster, false);
                 newBattle.Run();

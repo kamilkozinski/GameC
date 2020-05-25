@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Interactions.Built_In
 {
-    class QD1BetweenTasksStrategy : IQD1Strategy
+
+    class QD2DefaultStrategy : IQD1Strategy
     {
 
-        public QD1BetweenTasksStrategy()
+        public QD2DefaultStrategy()
         {
-            Name = "QD1BetweenTasksStartStrategy";
+            Name = "Q2DefaultStrategy";
         }
         public override void Execute(GameSession parentSession, bool visited)
         {
-            parentSession.SendText("\nGo kill monsters first!");
+            parentSession.SendText("\nCome back later.");
             
         }
     }

@@ -36,12 +36,13 @@ namespace Game.Engine
             new BerserkerGloves(),
             new BerserkerBoots(),
             new Aerondight(),
-            new GrowingStoneArmor()
+            new GrowingStoneArmor(),
+            new Key()
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
         {
-            new BasicArmorFactory(), new SwordFactory()
+            new BasicArmorFactory(), new SwordFactory(), new KeyFactory()
         };
 
         private static List<MonsterFactory> monsterFactories = new List<MonsterFactory>()
@@ -50,8 +51,8 @@ namespace Game.Engine
         };
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
-            new SkillForgetFactory(),
-            new GymirHymirFactory(),
+            //new SkillForgetFactory(),
+            //new GymirHymirFactory(),
             new QuestDoorFactory()
         };
 

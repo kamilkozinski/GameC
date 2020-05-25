@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 namespace Game.Engine.Interactions.Built_In
 {
     [Serializable]
-    class QuestDoor1 : ImageInteraction
+    class QuestDoor2 : ListBoxInteraction
     {
         protected IMediator mediator;
 
@@ -20,39 +20,36 @@ namespace Game.Engine.Interactions.Built_In
         {
             mediator = med;
         }
-        private static QuestDoor1 instance;
 
-        public static QuestDoor1 GetInstance(GameSession ses)
+        private bool visited = false; // has this place been visited?
+        public IQD1Strategy Strategy { get; set; } // store strategy 
+        public QuestDoor2(GameSession ses) : base(ses)
+        {
+            Name = "interaction0006";
+            Enterable = true;
+            Strategy = new QD2DefaultStrategy();
+        }
+        private static QuestDoor2 instance;
+
+        public static QuestDoor2 GetInstance(GameSession ses) 
         {
             if (instance == null)
             {
-                instance = new QuestDoor1(ses);
+                instance = new QuestDoor2(ses);
             }
             return instance;
         }
 
-        private bool visited = false; // has this place been visited?
-        public IQD1Strategy Strategy { get; set; } // store strategy 
-        public QuestDoor1(GameSession ses) : base(ses)
-        {
-            Name = "interaction0005";
-            displayedImageName = "interaction0005display";
-            Enterable = true;
-            Strategy = new QD1FirstQuestStartStrategy();
-        }
-
-
 
         protected override void RunContent()
         {
-            QD1BetweenTasksStrategy strat1 = new QD1BetweenTasksStrategy();
-            if (Strategy.Name == "QD1FirstQuestStartStrategy")
-            {
-                mediator.Notify(this, "Q1S");
-            }
 
-            Strategy.Execute(parentSession, visited);
-            Strategy = strat1; // change strategy between tasks
+             Strategy.Execute(parentSession, visited);
+            if (Strategy.Name == "QD2FourthQuestStartStrategy")
+            {
+                mediator.Notify(this, "Q4P");
+            }
+    
             visited = true;
 
         }

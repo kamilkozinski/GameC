@@ -13,10 +13,13 @@ namespace Game.Engine.Interactions.InteractionFactories
         public List<Interaction> CreateInteractionsGroup(GameSession parentSession)
         {
             KilledMonstersCounter counter = KilledMonstersCounter.GetInstance();
-            QuestDoor1 door1 = new QuestDoor1(parentSession);
-            new QuestDoorMediator(counter, door1);
+            QuestDoor1 door1 = QuestDoor1.GetInstance(parentSession);
+            QuestDoor2 door2 = QuestDoor2.GetInstance(parentSession);
+            Chest chest = Chest.GetInstance(parentSession);
 
-            return new List<Interaction>() { door1 };
+            new QuestDoorMediator(counter, door1, door2);
+
+            return new List<Interaction>() { door1, door2, chest };
         }
 
 

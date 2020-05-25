@@ -57,13 +57,11 @@ namespace Game.Engine
         {
             if (GreenDragonCounter == 2)
             {
-                mediator.Notify(this, "Q1P");
-                
+                mediator.Notify(this, "Q1P");      
             }
             if (GhostCounter == 2)
             {
-                mediator.Notify(this, "Q2P");
-               
+                mediator.Notify(this, "Q2P");    
             }
             if (RatsCounter == 2)
             {

@@ -24,3 +24,23 @@ Code available: https://github.com/kamilkozinski/GameC
 1.31 New skills factoreis
 	1. SwordPlayFactory Class - allows to produce new attack objects and creating COMBO's
 ~~~~~~
+1.4 New interactions
+	1. QuestDoor1 Class - gives player quests to kill monsters that are already spawned on map
+	2. QuestDoor2 Class - available only after finishing quests from QuestDoor1
+	3. Chest Class - available only after finishing quests from QuestDoor2
+	3. IQD1Strategy - abstract class that determine different strategies for QuestDoor quests:
+		3.1 QD1FirstQuestStartStrategy
+		3.2 QD1SecondQuestStartStrategy
+		3.3 QD1ThirdQuestStartStrategy
+		3.4 QD1BetweenTasksStrategy
+		3.5 QD2DefaultStrategy
+		3.6 QD2FourthQuestStartStrategy
+	4. IBattleStrategy interface that determines different strategies for class Battle
+		4.1 Q1Strategy
+		4.2 Q2Strategy
+		4.3 Q3Strategy
+	5. QuestDoorFactory Class - abstract factory for quests QuestDoor1 and QuestDoor2
+	6. KilledMonstersCounter Class - implements Singleton design pattern and allows to track number of killed monsters during tasks and provide communication between GameSession and QuestDoor classes
+	7. IMediator - interface connected with QuestsDoorMediator
+	8. QuestDoorMediator Class - provide communication between KilledMonstersCounter, QuestDoor1 and QuestDoor2 classes
+	9. Key Class - item to chest

@@ -15,6 +15,10 @@ namespace Game.Engine.Interactions.Built_In
             get;
             set;
         }
-        
+        protected int GetListBoxChoice(List<string> choices, GameSession parentSession)
+        {
+            return parentSession.ListBoxInteractionChoice(choices);
+        }
+
     }
 }

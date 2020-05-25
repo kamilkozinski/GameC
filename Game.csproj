@@ -112,7 +112,13 @@
     <Compile Include="Engine\CharacterClasses\Mage.cs" />
     <Compile Include="Engine\CharacterClasses\Warrior.cs" />
     <Compile Include="Engine\DefaultStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\Chest.cs" />
     <Compile Include="Engine\Interactions\Built-In\QD1ThirdQuestStartStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QD2DefaultStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QD2FourthQuestStartStrategy.cs" />
+    <Compile Include="Engine\Interactions\Built-In\QuestDoor2.cs" />
+    <Compile Include="Engine\Items\BasicArmor\Key.cs" />
+    <Compile Include="Engine\Items\ItemFactories\KeyFactory.cs" />
     <Compile Include="Engine\Q1Strategy.cs" />
     <Compile Include="Engine\GameSession.cs" />
     <Compile Include="Engine\GameSessionPrivateLogic.cs" />
@@ -177,6 +183,7 @@
     <Compile Include="Engine\Monsters\RatEvolved.cs" />
     <Compile Include="Engine\Monsters\SilverDragon.cs" />
     <Compile Include="Engine\Q2Strategy.cs" />
+    <Compile Include="Engine\Q3Strategy.cs" />
     <Compile Include="Engine\QD1BetweenTasksStrategy.cs" />
     <Compile Include="Engine\QuestDoorMediator.cs" />
     <Compile Include="Engine\SaveData.cs" />
@@ -320,6 +327,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\interaction0005display.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\interaction0006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\item2137.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\interaction0007.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
